@@ -20,6 +20,8 @@
 import Home from "./views/Home.vue";
 import AddCard from "./views/AddCard.vue";
 
+const STORAGE_KEY = "card-storage";
+
 export default {
   name: "App",
   components: {
@@ -33,9 +35,13 @@ export default {
       activeCard: {},
     };
   },
+  created() {
+    this.listOfCards = JSON.parse(localStorage.getItem(STORAGE_KEY) || "[]");
+  },
   methods: {
     addNewCard(theNewCard) {
       this.listOfCards.push(theNewCard);
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(this.listOfCards));
     },
     activateCard(card) {
       this.activeCard = card;

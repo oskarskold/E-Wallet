@@ -114,4 +114,7 @@ export default {
 .card-footer-right {
   margin: 1rem 0 0 5rem;
 }
+div {
+  position: relative;
+}
 </style>

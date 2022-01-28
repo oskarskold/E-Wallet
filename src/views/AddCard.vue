@@ -5,14 +5,25 @@
     <Card :card="cardMust" />
     <form @submit.prevent="submit">
       <label>CARD NUMBER</label>
-      <input type="text" v-model="cardMust.cardNumber" maxlength="16" />
+      <input
+        type="text"
+        v-model="cardMust.cardNumber"
+        minlength="16"
+        maxlength="16"
+        required
+      />
       <label>CARDHOLDER NAME</label>
-      <input type="text" v-model="cardMust.cardHolder" maxlength="20" />
+      <input
+        type="text"
+        v-model="cardMust.cardHolder"
+        maxlength="20"
+        required
+      />
 
       <section class="expire">
         <div class="expire-date">
           <label>MONTH</label>
-          <select v-model="cardMust.expireMonth">
+          <select v-model="cardMust.expireMonth" required>
             <option
               v-for="month in dateMonths"
               :key="month"
@@ -26,7 +37,7 @@
 
         <div class="expire-date">
           <label>YEAR</label>
-          <select v-model="cardMust.expireYear">
+          <select v-model="cardMust.expireYear" required>
             <option
               v-for="year in dateYears"
               :key="year"
@@ -40,7 +51,7 @@
       </section>
 
       <label>VENDOR</label>
-      <select v-model="cardMust.vendor">
+      <select v-model="cardMust.vendor" required>
         <option
           v-for="vendor in vendors"
           :key="vendor.value"

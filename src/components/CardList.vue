@@ -1,10 +1,13 @@
 <template>
   <div>
     <Card
-      v-for="card in listOfCards"
+      v-for="(card, idx) in listOfCards"
       :key="card.id"
       :card="card"
       @active="$emit('active', card)"
+      :style="{
+        top: idx * -200 + 'px', // <-- dynamic top
+      }"
     />
   </div>
 </template>
@@ -27,6 +30,7 @@ export default {
   color: whitesmoke;
   font-family: "PT Mono", monospace;
 }
+
 .bitcoin {
   background-color: #ffae34;
 }

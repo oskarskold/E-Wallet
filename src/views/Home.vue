@@ -4,7 +4,7 @@
     <h5>ACTIVE CARD</h5>
     <Card :card="active" />
     <article>
-      <CardList class="xd" :listOfCards="listOfCards" @active="submitCard" />
+      <CardList :listOfCards="listOfCards" @active="submitCard" />
     </article>
     <button @click="$emit('switch')">ADD A NEW CARD</button>
   </div>
@@ -65,6 +65,8 @@ button {
   font-size: 1rem;
   font-weight: 700;
   border-radius: 1rem;
+  position: absolute;
+  top: 1300px;
 }
 button:hover {
   background: rgb(107, 106, 106);
